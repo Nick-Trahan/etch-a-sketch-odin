@@ -1,5 +1,6 @@
 const divContainer = document.querySelector('#container');
 const divScreen = document.querySelector('#screen');
+const btnReset = document.querySelector('#button-reset')
 
 createGrid(16);
 
@@ -17,5 +18,31 @@ function createGrid(number) {
 
 divScreen.addEventListener('mouseover', (event) => {
   const currentBox = event.target;
+
   currentBox.style.backgroundColor = 'black';
 });
+
+btnReset.addEventListener('click', (event) => {
+  event.stopPropagation();
+  resetBoard();
+});
+
+function resetBoard() {
+  const colorBoxes = document.querySelectorAll('.box');
+
+  colorBoxes.forEach((div) =>{
+    div.parentNode.removeChild(div);
+  });
+
+  promptUser();
+}
+
+function promptUser() {
+  let gridSize = prompt('How large?');
+
+  if(isNaN(gridSize)) {
+    promptUser();
+  } else {
+    createGrid(gridSize);
+  }
+}
