@@ -376,6 +376,8 @@ template {
   border-radius: 15px;
 
   background-color: lightgray;
+
+  cursor: pointer;
 }
 
 .box {
@@ -393,6 +395,29 @@ template {
   padding-bottom: 1em;
 }
 
+#h1-title {
+  font-family: 'Bungee Inline', cursive;
+  color: goldenrod
+}
+
 .below-screen-buttons {
-  border-radius: 50px;
+  font-family: 'Open Sans', sans-serif;
+
+  border: 2px solid gray; /*this might go*/
+  border-radius: 50%;
+  background-color: white;
+
+  width: 80px;
+  height: 80px;
+
+  padding-left: 1em;
+  padding-right: 1em;
+
+  cursor: pointer;
+}
+
+.below-screen-buttons:focus {
+  outline: none;
+
+  box-shadow: 0 0 0 5px firebrick;
 }
