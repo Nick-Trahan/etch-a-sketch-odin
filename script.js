@@ -1,6 +1,7 @@
 const divContainer = document.querySelector('#container');
 const divScreen = document.querySelector('#div-screen');
-const btnReset = document.querySelector('#button-reset')
+const btnReset = document.querySelector('#button-reset');
+const btnColor = document.querySelector('#button-toggleColors');
 
 createGrid(16);
 
@@ -28,9 +29,23 @@ divScreen.addEventListener('mouseover', (event) => {
   const randomColor = 'rgb(' + random(255) + ',' + random(255) + ',' + random(255) + ')';
   const currentBox = event.target;
 
-  currentBox.id === 'div-screen' ? null : currentBox.style.backgroundColor = randomColor; //prevents changing the background color of divScreen
+  if(currentBox.id ==='div-screen') {  //prevents changing the background color of divScreen.
+
+    return;
+
+  } else {
+    if(divScreen.className === 'colorful') {
+      currentBox.style.backgroundColor = randomColor;
+      
+    } else {
+      currentBox.style.backgroundColor = 'black';
+    }
+  }
 });
 
+btnColor.addEventListener('click', () => {
+  divScreen.classList.toggle('colorful');
+});
 
 btnReset.addEventListener('click', (event) => {
   event.stopPropagation(); //stops this event from applying to parent element
