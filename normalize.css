@@ -357,15 +357,18 @@ template {
 }
 
 #container {
-  width: 80%;
+  width: 50%;
+  margin: 0 auto;
 }
 
 #screen {
   display: grid;
-  grid-template-rows: repeat(16, 1fr);
-  grid-template-columns: repeat(16, 1fr);
+  
+  max-width: 100%;
+  min-width: 100%;
 }
+
 .box{
-  width: 30px;
-  height: 30px;
+  padding-top: 100%;
+  background-color: blanchedalmond;
 }

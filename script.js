@@ -7,11 +7,8 @@ function createGrid(number) {
 
     divBox.setAttribute('id', 'divBox-' + (i + 1));
     divBox.setAttribute('class', 'box');
-
-    divBox.textContent = i + 1;
     
-    // divScreen.setAttribute('style', 'grid-template-rows: ' + number);
-    // divScreen.setAttribute('style', 'grid-template-columns: ' + number);
+    divScreen.setAttribute('style', 'grid-template: repeat('+ number + ', ' + '1fr' + ')' + ' \/ ' + 'repeat(' + number + ', ' + '1fr' + ')');
     divScreen.appendChild(divBox);
   }
 }
