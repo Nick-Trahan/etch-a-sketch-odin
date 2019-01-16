@@ -8,10 +8,10 @@ function createGrid(number) {
   for(let i = 0; i < number * number; i++) {
     const divBox = document.createElement('div');
 
-    divBox.setAttribute('id', 'divBox-' + (i + 1));
+    divBox.setAttribute('id', 'div-box-' + (i + 1));
     divBox.setAttribute('class', 'box');
 
-    divScreen.setAttribute('style', 'grid-template: repeat('+ number + ', ' + '1fr' + ')' + ' \/ ' + 'repeat(' + number + ', ' + '1fr' + ')');
+    divScreen.setAttribute('style', 'grid-template: repeat('+ number + ', 1fr)' + ' \/ ' + 'repeat(' + number + ', 1fr)');
     divScreen.appendChild(divBox);
   }
 }
@@ -30,7 +30,7 @@ btnReset.addEventListener('click', (event) => {
 function resetBoard() {
   const colorBoxes = document.querySelectorAll('.box');
 
-  colorBoxes.forEach((div) =>{
+  colorBoxes.forEach((div) => {
     div.parentNode.removeChild(div);
   });
 
@@ -39,10 +39,6 @@ function resetBoard() {
 
 function promptUser() {
   let gridSize = prompt('How large?');
-
-  if(isNaN(gridSize)) {
-    promptUser();
-  } else {
-    createGrid(gridSize);
-  }
+  
+  isNaN(gridSize) ? promptUser() : createGrid(gridSize);
 }
