@@ -28,7 +28,7 @@ divScreen.addEventListener('mouseover', (event) => {
   const randomColor = 'rgb(' + random(255) + ',' + random(255) + ',' + random(255) + ')';
   const currentBox = event.target;
 
-  currentBox.style.backgroundColor = randomColor;
+  currentBox.id === 'div-screen' ? null : currentBox.style.backgroundColor = randomColor;
 });
 
 

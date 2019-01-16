@@ -359,12 +359,28 @@ template {
 #container {
   width: 720px;
   margin: 0 auto;
+  
+  padding-top: 2em;
+  padding-right: 2em;
+  padding-bottom: 6em;
+  padding-left: 2em;
+
+  border-radius: 15px;
+
+  background-color: red;
 }
 
 #div-screen {
   display: grid;
+
+  border: 5px solid firebrick;
+  border-radius: 15px;
+
+  background-color: lightgray;
 }
 
 .box{
   padding-top: 100%;
+
+  border-radius: 10px;
 }
