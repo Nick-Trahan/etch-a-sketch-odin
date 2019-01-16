@@ -362,7 +362,6 @@ template {
   
   padding-top: 2em;
   padding-right: 2em;
-  padding-bottom: 6em;
   padding-left: 2em;
 
   border-radius: 15px;
@@ -379,8 +378,21 @@ template {
   background-color: lightgray;
 }
 
-.box{
+.box {
   padding-top: 100%;
 
   border-radius: 10px;
+}
+
+
+#div-below-screen {
+  display: flex;
+  justify-content: space-between;
+
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+.below-screen-buttons {
+  border-radius: 50px;
 }
