@@ -355,3 +355,17 @@ template {
 * {
   box-sizing: border-box;
 }
+
+#container {
+  width: 80%;
+}
+
+#screen {
+  display: grid;
+  grid-template-rows: repeat(16, 1fr);
+  grid-template-columns: repeat(16, 1fr);
+}
+.box{
+  width: 30px;
+  height: 30px;
+}
