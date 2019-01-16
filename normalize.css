@@ -424,16 +424,16 @@ template {
   box-shadow: 0 0 0 5px firebrick;
 }
 
-@keyframes spin {
-  0% { transform: rotate(0deg);}
-  50% { transform: rotate(150deg);}
-  100% { transform: rotate(0deg); }
-}
-
 #button-toggleColors:active {
   animation: spin 0.3s linear 1;
 }
 
 #button-reset:active {
   animation: spin 0.3s linear 1;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg);}
+  50% { transform: rotate(150deg);}
+  100% { transform: rotate(0deg);}
 }
