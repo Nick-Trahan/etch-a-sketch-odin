@@ -424,11 +424,7 @@ template {
   box-shadow: 0 0 0 5px firebrick;
 }
 
-#button-toggleColors:active {
-  animation: spin 0.3s linear 1;
-}
-
-#button-reset:active {
+.below-screen-buttons:active {
   animation: spin 0.3s linear 1;
 }
 
