@@ -1,8 +1,6 @@
-const divContainer = document.querySelector('#container');
 const divScreen = document.querySelector('#div-screen');
 const btnReset = document.querySelector('#button-reset');
 const btnColor = document.querySelector('#button-toggleColors');
-const bothButtons = document.querySelector('.below-screen-buttons');
 
 createGrid(16);
 
