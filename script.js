@@ -46,6 +46,7 @@ divScreen.addEventListener('mouseover', (event) => {
 
 btnColor.addEventListener('click', () => {
   divScreen.classList.toggle('colorful');
+  toggleAnimation();
 });
 
 btnReset.addEventListener('click', (event) => {
@@ -53,23 +54,16 @@ btnReset.addEventListener('click', (event) => {
   resetBoard();
 });
 
-btnColor.addEventListener('click', (event) => {
-  event.stopPropagation();
-  toggleClass();
-});
+function toggleAnimation() {
+  btnColor.removeAttribute('id', 'button-toggleColors');
+  btnColor.setAttribute('id', 'button-toggleColors-animate');
+  btnColor.style.animationPlayState = 'running';
 
-btnReset.addEventListener('click', (event) => {
-  event.stopPropagation();
-  toggleClass();
-});
-
-function toggleClass() {
-  bothButtons.classList.toggle('below-screen-buttons');
-  bothButtons.classList.add('below-screen-buttons-test');
-  setTimeout(function() {
-    bothButtons.classList.remove('below-screen-buttons-test');
-    bothButtons.classList.toggle('below-screen-buttons');
-  }, 1000);
+  setTimeout(() => {
+    btnColor.style.animationPlayState = 'paused';
+    btnColor.removeAttribute('id', 'button-toggleColors-animate');
+    btnColor.setAttribute('id', 'button-toggleColors');
+  }, 300);
 }
 
 function resetBoard() {
