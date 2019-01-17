@@ -427,7 +427,6 @@ template {
 
 #button-toggleColors-animate {
   animation: spin 0.3s linear 1;
-  animation-play-state: paused;
 }
 
 @keyframes spin {
