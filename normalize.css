@@ -356,7 +356,11 @@ template {
   box-sizing: border-box;
 }
 
-#container {
+/**
+* This is the "body" of the odin-sketch.
+*/
+
+#container { 
   width: 720px;
   margin: 0 auto;
   
@@ -379,6 +383,10 @@ template {
   cursor: pointer;
 }
 
+/*
+* .box forms the individual "pixels" of the screen.
+* padding-top 100% ensures the divs are always square.
+*/
 .box {
   padding-top: 100%;
 
@@ -415,6 +423,10 @@ template {
   cursor: pointer;
 }
 
+/*
+* Removes the default focus outline (square box) and replaces it with a 
+* box-shadow.
+*/
 .below-screen-buttons:focus {
   outline: none;
 
@@ -425,6 +437,12 @@ template {
   animation: spin 0.3s linear 1;
 }
 
+/*
+* -animate is added with JavaScript when a user clicks the element,
+* then removed when the animation is complete. This allows the animation
+* play to completion without requiring the user to hold the mouse button 
+* down.
+*/
 #button-toggle-colors-animate {
   animation: spin 0.3s linear 1;
 }
