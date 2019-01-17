@@ -94,8 +94,13 @@ function resetBoard() {
 }
 
 function promptUser() {
-  let gridSize = prompt('How large?');
-  // The next line ensures that the user has input a number, other input will be rejected.
+  let gridSize = prompt('Give me a number and I\'ll magically produce a number X number grid for you to play with!', 16);
+
+  if(gridSize === null) { // If user clicks 'cancel', a default size is applied.
+    gridSize = 16;
+  }
+
+// The next line ensures that the user has input a number, other input will be rejected.
   isNaN(gridSize) ? promptUser() : checkInput(gridSize);
 }
 
