@@ -1,6 +1,6 @@
 const divScreen = document.querySelector('#div-screen');
 const btnReset = document.querySelector('#button-reset');
-const btnColor = document.querySelector('#button-toggleColors');
+const btnColor = document.querySelector('#button-toggle-colors');
 
 createGrid(16);
 
@@ -64,14 +64,14 @@ resetting. Without this function, the animation would only play as long as
 the user held the mouse button down.
 */
 function toggleAnimation() {
-  btnColor.removeAttribute('id', 'button-toggleColors');
-  btnColor.setAttribute('id', 'button-toggleColors-animate');
+  btnColor.removeAttribute('id', 'button-toggle-colors');
+  btnColor.setAttribute('id', 'button-toggle-colors-animate');
   btnColor.style.animationPlayState = 'running';
 
   setTimeout( () => {
     btnColor.style.animationPlayState = 'paused';
-    btnColor.removeAttribute('id', 'button-toggleColors-animate');
-    btnColor.setAttribute('id', 'button-toggleColors');
+    btnColor.removeAttribute('id', 'button-toggle-colors-animate');
+    btnColor.setAttribute('id', 'button-toggle-colors');
   }, 300);
 }
 /*
