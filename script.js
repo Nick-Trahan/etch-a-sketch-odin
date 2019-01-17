@@ -2,6 +2,7 @@ const divContainer = document.querySelector('#container');
 const divScreen = document.querySelector('#div-screen');
 const btnReset = document.querySelector('#button-reset');
 const btnColor = document.querySelector('#button-toggleColors');
+const bothButtons = document.querySelector('.below-screen-buttons');
 
 createGrid(16);
 
@@ -51,6 +52,25 @@ btnReset.addEventListener('click', (event) => {
   event.stopPropagation(); //stops this event from applying to parent element
   resetBoard();
 });
+
+btnColor.addEventListener('click', (event) => {
+  event.stopPropagation();
+  toggleClass();
+});
+
+btnReset.addEventListener('click', (event) => {
+  event.stopPropagation();
+  toggleClass();
+});
+
+function toggleClass() {
+  bothButtons.classList.toggle('below-screen-buttons');
+  bothButtons.classList.add('below-screen-buttons-test');
+  setTimeout(function() {
+    bothButtons.classList.remove('below-screen-buttons-test');
+    bothButtons.classList.toggle('below-screen-buttons');
+  }, 1000);
+}
 
 function resetBoard() {
   const colorBoxes = document.querySelectorAll('.box');

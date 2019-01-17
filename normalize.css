@@ -373,7 +373,6 @@ template {
   display: grid;
 
   border: 5px solid firebrick;
-  border-radius: 15px;
 
   background-color: lightgray;
 
@@ -382,8 +381,6 @@ template {
 
 .box {
   padding-top: 100%;
-
-  border-radius: 10px;
 
   transition: background-color 0.3s ease;
 }
@@ -405,7 +402,7 @@ template {
 .below-screen-buttons {
   font-family: 'Open Sans', sans-serif;
 
-  border: 2px solid gray; /*this might go*/
+  border: 2px solid gray;
   border-radius: 50%;
   background-color: white;
 
@@ -421,10 +418,10 @@ template {
 .below-screen-buttons:focus {
   outline: none;
 
-  box-shadow: 0 0 0 5px firebrick;
+  box-shadow: 0 0 0 3px firebrick;
 }
 
-.below-screen-buttons:active {
+.below-screen-buttons test:active {
   animation: spin 0.3s linear 1;
 }
 
