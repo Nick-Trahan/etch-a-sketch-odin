@@ -95,6 +95,19 @@ function resetBoard() {
 
 function promptUser() {
   let gridSize = prompt('How large?');
-  
-  isNaN(gridSize) ? promptUser() : createGrid(gridSize);
+  // The next line ensures that the user has input a number, other input will be rejected.
+  isNaN(gridSize) ? promptUser() : checkInput(gridSize);
+}
+
+/*
+This function checks the user's input and will only accept a positive, whole
+number greater than 0.
+*/
+function checkInput(number) {
+  if(number <= 0 || number % 1 !== 0) {
+    promptUser();
+
+  } else {
+    createGrid(number);
+  }
 }
