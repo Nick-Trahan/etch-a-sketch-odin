@@ -79,25 +79,16 @@ The (300) here refers to the time, in milliseconds, the setTimeout function
 will wait before executing the commands within the arrow function.
 */
 
-btnReset.addEventListener('click', () => {
-  resetBoard();
-});
-
-function resetBoard() {
-  const colorBoxes = document.querySelectorAll('.box');
-
-  colorBoxes.forEach((div) => {
-    div.parentNode.removeChild(div);
-  });
-
+btnReset.addEventListener('click', (event) => {
+  event.stopPropagation(); //stops this event from applying to parent element
   promptUser();
-}
+});
 
 function promptUser() {
   let gridSize = prompt('Give me a number and I\'ll magically produce a number X number grid for you to play with!', 16);
 
-  if(gridSize === null) { // If user clicks 'cancel', a default size is applied.
-    gridSize = 16;
+  if(gridSize === null) { // If user clicks 'cancel', prompt goes away
+    return;
   }
 
 // The next line ensures that the user has input a number, other input will be rejected.
@@ -113,6 +104,15 @@ function checkInput(number) {
     promptUser();
 
   } else {
+    resetBoard();
     createGrid(number);
   }
+}
+
+function resetBoard() {
+  const colorBoxes = document.querySelectorAll('.box');
+
+  colorBoxes.forEach((div) => {
+    div.parentNode.removeChild(div);
+  });
 }
