@@ -6,7 +6,12 @@ const bothButtons = document.querySelector('.below-screen-buttons');
 
 createGrid(16);
 
-//Creates the correct amount of divs by first assigning the user-provided number of columns and rows to the parent div, then looping though that user-provided number times itself. Each loop creates a div, assigns a class and id, then appends the div to its parent element.
+/*
+Creates the correct amount of divs by first assigning the user-provided number 
+of columns and rows to the parent div, then looping though that user-provided 
+number times itself. Each loop creates a div, assigns a class and id, then 
+appends the div to its parent element.
+*/
 function createGrid(number) {
   divScreen.setAttribute('style', 'grid-template: repeat('+ number + ', 1fr)' + ' \/ ' + 'repeat(' + number + ', 1fr)');
 
@@ -20,18 +25,24 @@ function createGrid(number) {
   }
 }
 
-//helper function for random color generator
+//Helper function for random color generator
 function random(number) { 
   return Math.floor(Math.random() * (number + 1));
 }
 
-//generates a random color, then applies that color to the currently chosen div.
+/*
+Generates a random color, then applies that color to the currently chosen div.
+*/
 divScreen.addEventListener('mouseover', (event) => { 
   const randomColor = 'rgb(' + random(255) + ',' + random(255) + ',' + random(255) + ')';
   const currentBox = event.target;
 
-  if(currentBox.id ==='div-screen') {  //prevents changing the background color of divScreen.
-
+  /*
+  This if() statment prevents changing the background color of divScreen.
+  It's needed because of the 5px border between the parent element(divScreen)
+  and the target elements.
+  */
+  if(currentBox.id ==='div-screen') { 
     return;
 
   } else {
@@ -49,22 +60,30 @@ btnColor.addEventListener('click', () => {
   toggleAnimation();
 });
 
-btnReset.addEventListener('click', (event) => {
-  event.stopPropagation(); //stops this event from applying to parent element
-  resetBoard();
-});
-
+/*
+This function is needed to allow a CSS animation to play to completion before
+resetting. Without this function, the animation would only play as long as 
+the user held the mouse button down.
+*/
 function toggleAnimation() {
   btnColor.removeAttribute('id', 'button-toggleColors');
   btnColor.setAttribute('id', 'button-toggleColors-animate');
   btnColor.style.animationPlayState = 'running';
 
-  setTimeout(() => {
+  setTimeout( () => {
     btnColor.style.animationPlayState = 'paused';
     btnColor.removeAttribute('id', 'button-toggleColors-animate');
     btnColor.setAttribute('id', 'button-toggleColors');
   }, 300);
 }
+/*
+The (300) here refers to the time, in milliseconds, the setTimeout function
+will wait before executing the commands within the arrow function.
+*/
+
+btnReset.addEventListener('click', () => {
+  resetBoard();
+});
 
 function resetBoard() {
   const colorBoxes = document.querySelectorAll('.box');
