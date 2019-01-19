@@ -2,6 +2,7 @@ const divScreen = document.querySelector('#div-screen');
 const btnReset = document.querySelector('#button-reset');
 const btnColor = document.querySelector('#button-toggle-colors');
 
+//The default grid size is 16x16
 createGrid(16);
 
 /*
@@ -23,7 +24,7 @@ function createGrid(number) {
   }
 }
 
-//Helper function for random color generator
+//Helper function for the random color generator that follows.
 function random(number) { 
   return Math.floor(Math.random() * (number + 1));
 }
