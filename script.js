@@ -49,7 +49,7 @@ divScreen.addEventListener('mouseover', (event) => {
       currentBox.style.backgroundColor = randomColor;
       
     } else {
-      currentBox.style.backgroundColor = 'black';
+      currentBox.style.backgroundColor = 'hsl(0, 0%, 80%)';
     }
   }
 });
