@@ -49,10 +49,32 @@ divScreen.addEventListener('mouseover', (event) => {
       currentBox.style.backgroundColor = randomColor;
       
     } else {
-      currentBox.style.backgroundColor = 'hsl(0, 0%, 80%)';
+      fadeEffect(currentBox);
     }
   }
 });
+
+function fadeEffect(element) {
+  const currentWhiteLevel = element.getAttribute('style', 'background-color');
+  
+  //This sets the initial white level of each mouse-overed element
+  if(currentWhiteLevel === null) {
+    element.setAttribute('style', 'background-color: hsl(0, 0%, 70%)');
+    
+    //The whiteLevelModifier begins at 7 (70% white), and is lowered by 10% on each pass of the mouse
+  } else {
+    let colorMode = currentWhiteLevel.substr(18, 3);
+    let whiteLevelModifier = currentWhiteLevel.substr(29, 1);
+    
+    if(colorMode === 'rgb') { //Formally colorful squares will be filled with the initial white level.
+      element.setAttribute('style', 'background-color: hsl(0, 0%, 70%)');
+     
+    } else if(whiteLevelModifier <= 7 && whiteLevelModifier >= 0) {
+       whiteLevelModifier--;
+       element.setAttribute('style', 'background-color: hsl(0, 0%, ' + whiteLevelModifier + '0%)');
+    }
+  }
+}
 
 btnColor.addEventListener('click', () => {
   divScreen.classList.toggle('colorful');
