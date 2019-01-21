@@ -61,7 +61,7 @@ function fadeEffect(element) {
   if(currentWhiteLevel === null) {
     element.setAttribute('style', 'background-color: hsl(0, 0%, 70%)');
     
-    //The whiteLevelModifier begins at 7 (70% white), and is lowered by 10% on each pass of the mouse
+  //The whiteLevelModifier begins at 7 (70% white), and is lowered by 10% on each pass of the mouse
   } else {
     let colorMode = currentWhiteLevel.substr(18, 3);
     let whiteLevelModifier = currentWhiteLevel.substr(29, 1);
@@ -108,7 +108,7 @@ btnReset.addEventListener('click', (event) => {
 });
 
 function promptUser() {
-  let gridSize = prompt('Give me a number and I\'ll magically produce a number X number grid for you to play with!', 16);
+  let gridSize = prompt('Give me a number up to 256 and I\'ll magically produce a number X number grid for you to draw on!', 16);
 
   if(gridSize === null) { // If user clicks 'cancel', prompt goes away
     return;
@@ -123,7 +123,7 @@ This function checks the user's input and will only accept a positive, whole
 number greater than 0.
 */
 function checkInput(number) {
-  if(number <= 0 || number % 1 !== 0) {
+  if(number <= 0 || number % 1 !== 0 || number > 256) {
     promptUser();
 
   } else {
