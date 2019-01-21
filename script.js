@@ -8,7 +8,7 @@ createGrid(16);
 /*
 Creates the correct amount of divs by first assigning the user-provided number 
 of columns and rows to the parent div, then looping though that user-provided 
-number times itself. Each loop creates a div, assigns a class and id, then 
+number times itself. Each loop creates a div, assigns a class, then 
 appends the div to its parent element.
 */
 function createGrid(number) {
@@ -17,7 +17,6 @@ function createGrid(number) {
   for(let i = 0; i < number * number; i++) {
     const divBox = document.createElement('div');
 
-    divBox.setAttribute('id', 'div-box-' + (i + 1));
     divBox.setAttribute('class', 'box');
 
     divScreen.appendChild(divBox);
@@ -66,7 +65,8 @@ function fadeEffect(element) {
     let colorMode = currentWhiteLevel.substr(18, 3);
     let whiteLevelModifier = currentWhiteLevel.substr(29, 1);
     
-    if(colorMode === 'rgb') { //Formally colorful squares will be filled with the initial white level.
+     //Formally colorful squares will be filled with the initial white level.
+    if(colorMode === 'rgb') {
       element.setAttribute('style', 'background-color: hsl(0, 0%, 70%)');
      
     } else if(whiteLevelModifier <= 7 && whiteLevelModifier >= 0) {
